@@ -14,6 +14,7 @@ class TextInput extends Component {
                   type="text"
                   name={`${this.props.name}Input`}
                   id={`${this.props.name}Input`}
+                  onChange={this.props.changeFunc}
                 ></input>
               </div>
 
