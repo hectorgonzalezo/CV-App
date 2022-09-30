@@ -7,9 +7,10 @@ class TextDisplay extends Component {
 
     render(){
         return (
-            <div key={this.props.keyID}>
-            <h2>{this.props.content}</h2>
-            </div>
+            <div>
+            <h2>{this.props.name}</h2>
+                <p>{this.props.content}</p>
+              </div>
         )
     }
 

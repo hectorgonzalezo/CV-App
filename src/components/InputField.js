@@ -45,12 +45,12 @@ class InputField extends Component {
       return (
         <div>
           <h2>{this.props.type}</h2>
-          {this.props.fields.map((fieldName) => {
+          {this.props.fields.map((fieldName, i) => {
             return (
               <TextInput
-                key={this.state[`${fieldName}ID`]}
+                key={i}
                 name={fieldName}
-                value={this.state[[`${fieldName}Value`]]}
+                value={this.state[`${fieldName}Value`]}
                 changeFunc={this.updateTextValue}
               />
             );
@@ -63,10 +63,11 @@ class InputField extends Component {
         return (
             <div>
               <h2>{this.props.type}</h2>
-              {this.props.fields.map((fieldName) => {
+              {this.props.fields.map((fieldName, i) => {
                 return (
                   <TextDisplay
-                  key = {this.state[`${fieldName}ID`]}
+                  key = {i + 'display'}
+                    name={fieldName}
                     content={this.state[[`${fieldName}Value`]]}
                   />
                 );
