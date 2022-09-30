@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import face from '../assets/face.png'
 
 class Picture extends Component{
     constructor(props){
         super(props)
-        this.state = { url: ''};
+        this.state = { url: face};
         this.changePicture = this.changePicture.bind(this);
     }
 
@@ -17,7 +18,6 @@ class Picture extends Component{
     render(){
         return (
             <div>
-            <h1>image</h1>
                 <img src={this.state.url} alt=""/>
                 <input 
                 type="file" 

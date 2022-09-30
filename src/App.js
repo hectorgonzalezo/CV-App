@@ -1,12 +1,18 @@
-import './App.css';
+import Header from './components/Header'
 import Input from './components/Input';
 import Picture from './components/Picture'
+import Footer from './components/Footer'
+import './styles/appStyle.css'
 
 function App() {
   return (
     <div className="App">
-    <Picture />
-    <Input />
+    <Header />
+    <div className="cv">
+        <Picture />
+        <Input />
+    </div>
+    <Footer projectName='CV-App'/>
     </div>
   );
 }
