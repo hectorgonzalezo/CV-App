@@ -1,0 +1,11 @@
+
+body {
+    background-color:blanchedalmond;
+    height: 100vh;
+}
+
+.App{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
