@@ -37,7 +37,7 @@ class InputMultiple extends Component {
                     <InputField
                         key={field.id}
                         keyNum={field.id}
-                        className="experienceField"
+                        className={`${this.props.id}Field`}
                         fields={this.props.fields}
                         deleteButtonFunc={this.deleteButtonFunc}
                     />

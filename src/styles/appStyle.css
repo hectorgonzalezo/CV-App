@@ -67,8 +67,11 @@ h2{
     padding: 10px;
     display: grid;
     align-items: start;
-    justify-items: left;
     align-content: start;
+}
+
+#cv button:not(.addButton){
+    justify-self: left;
 }
 
 #upload{
@@ -105,6 +108,20 @@ h2{
 .addButton{
     justify-self: center;
     align-self: start;
+}
+
+.right-side-field{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    gap:  20px
+}
+
+.right-side-field > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* * {

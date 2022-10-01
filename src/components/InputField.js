@@ -14,7 +14,7 @@ class InputField extends Component {
     this.changeToDisplay = this.changeToDisplay.bind(this);
     this.getCorrectType = this.getCorrectType.bind(this);
     this.addDeleteButton = this.addDeleteButton.bind(this);
-    this.getDisplayContent = this.getDisplayContent.bind(this);
+    this.formatDisplayContent = this.formatDisplayContent.bind(this);
   }
 
   // Create state based on every field received by props
@@ -38,16 +38,16 @@ class InputField extends Component {
   }
 
   // Formats the content to be sent do display
-  getDisplayContent(){
+  formatDisplayContent(){
     let stateKeys = Object.keys(this.state);
     stateKeys = stateKeys.filter(key => key.includes('Value'))
-    stateKeys = stateKeys.map(key => {
+    const valuesObj = {};
+    stateKeys.forEach(key => {
         const name = key.toString().match(/[a-z]+/)[0];
-        console.log(this.state[key])
         const value = this.state[key]
-        return { name, value }
+        valuesObj[name] = value
     })
-    return stateKeys
+    return valuesObj
   }
 
   // Switches from input to display the info typed by user
@@ -102,7 +102,7 @@ class InputField extends Component {
         //display mode
         return (
             <div id={this.props.id}>
-                  <TextDisplay content={this.getDisplayContent()} />
+                  <TextDisplay type={this.props.className} content={this.formatDisplayContent()} />
               <button onClick={this.changeToDisplay}>Edit</button>
                 {this.addDeleteButton(this.props.className)}
             </div>
