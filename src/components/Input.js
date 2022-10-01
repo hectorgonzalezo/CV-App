@@ -17,7 +17,8 @@ class Input extends Component {
                   id={`${this.props.name}Input`}
                   onChange={this.props.changeFunc}
                   placeholder={this.props.name}
-                ></input>
+                  required
+                />
               </div>
 
       );

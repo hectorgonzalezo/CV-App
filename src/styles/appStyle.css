@@ -7,6 +7,7 @@
     --color-background:  rgb(225, 233, 252);
     --color-left: rgb(24, 20, 20);
     --color-paper: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1{
@@ -25,10 +26,9 @@ h2{
     display: grid;
     align-items: center;
     justify-content: center;
-    height: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 100px 1fr 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     justify-items: center;
 }
 
@@ -36,16 +36,19 @@ h2{
     display: grid;
     background-color: var(--color-paper);
     min-height: 600px;
+    width: 800px;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(3, 1fr) 2fr;
+    grid-template-rows: 180px 1fr 1fr;
     grid-template-areas: 
                         "picture name"
-                        "picture education"
                         "general education"
                         "general experience";
     align-items: stretch;
 }
 
+#cv div {
+    position: relative;
+}
 
 
 #cv #picture{
@@ -62,11 +65,22 @@ img{
     max-width: 150px;
 }
 
-#name {
-    grid-area: name;
+#cv #name {
+    grid-area: name;    
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: var(--color-dark);
-    color: white
+    color: white;
+}
+
+#name p:first-child{
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+}
+
+#name p{
+    font-size: 1.5rem;
+    font-style: italic;
 }
 
 #general{
@@ -88,6 +102,13 @@ img{
     align-items: start;
     align-content: start;
     position: relative;
+    gap: 20px;
+}
+
+.display{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 #cv button:not(.addButton){
@@ -113,7 +134,7 @@ button,
     padding: 2px 5px 2px 5px;
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    right: 10px;
 }
 
 button:hover,
@@ -121,6 +142,12 @@ button:hover,
     background-color: var(--color-complementary-light);
     color: black;
     cursor:pointer;
+}
+
+
+.title {
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
 .field{
@@ -131,15 +158,13 @@ button:hover,
 }
 
 .addButton{
-    justify-self: center;
-    align-self: start;
+    right: 50%;
 }
 
 .right-side-field{
     display: flex;
     padding: 5px;
     align-items: center;
-    justify-content: center;
     gap:  25px
 }
 
@@ -147,8 +172,35 @@ button:hover,
     display: flex;
     flex-direction: column;
     gap: 5px;
+    font-size: 1rem;
 }
 
-* {
-    outline: 1px dashed red;
+.right-side-field::before,
+#general > div::before{
+    content: '-'
 }
+
+.input-field{
+    position: relative;
+}
+
+.position,
+.degree {
+    color: var(--color-complementary-dark);
+    font-weight: bold;
+}
+
+.city {
+    color: grey;
+    font-size: 0.8rem;
+}
+
+.university,
+.company {
+    font-weight: bold;
+
+}
+
+/* * {
+    outline: 1px dashed red;
+} */

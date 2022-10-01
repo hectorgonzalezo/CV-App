@@ -25,13 +25,14 @@ class CV extends Component {
           />
         <InputField
           id='general'
+          title="Contact"
           fields={["email", "phone", "address"]}
           submitFunc={this.clickSubmit}
         />
         <InputMultiple
         id="education"
           title="Education"
-          fields={["university", "city", "degree", "subject", "from", "to"]}
+          fields={["university", "city", "degree", "from", "to"]}
         />
         <InputMultiple
         id="experience"

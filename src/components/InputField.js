@@ -94,14 +94,14 @@ class InputField extends Component {
               />
             );
           })}
-          <button onClick={this.changeToDisplay}>Submit</button>
-          {}
+          <button type="submit" onClick={this.changeToDisplay}>Submit</button>
         </div>
       );
     } else {
         //display mode
         return (
             <div id={this.props.id}>
+            {this.props.title!== undefined? <h3 className='title'>{this.props.title}</h3> : null}
                   <TextDisplay type={this.props.className} content={this.formatDisplayContent()} />
               <button onClick={this.changeToDisplay}>Edit</button>
                 {this.addDeleteButton(this.props.className)}

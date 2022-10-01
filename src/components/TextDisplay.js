@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import { capitalize } from "lodash";
+import { format } from 'date-fns';
 
 class TextDisplay extends Component {
   constructor(props) {
     super(props);
+    this.formatDate = this.formatDate.bind(this);
+  }
+
+  formatDate(date){
+    return format(new Date(date),  'MMMM yyyy')
   }
 
   render() {
@@ -13,13 +18,12 @@ class TextDisplay extends Component {
         return(
             <div className="right-side-field">
                 <div>
-                    <h4>{`${from}=${to}`}</h4>
-                    <h3>{degree}</h3>
+                    <h4>{`${this.formatDate(from)} - ${this.formatDate(to)}`}</h4>
+                    <h3 className='degree'>{degree}</h3>
                 </div>
                 <div>
-                    <h3>{university}</h3>
-                    <h4>{city}</h4>
-                    <h4>{subject}</h4>
+                    <h3 className="university">{university}</h3>
+                    <h4 className="city">{city}</h4>
                 </div>
             </div>
         )
@@ -28,24 +32,22 @@ class TextDisplay extends Component {
         return(
             <div className="right-side-field">
                 <div>
-                    <h4>{`${from}=${to}`}</h4>
-                    <h3>{position}</h3>
+                <h4>{`${this.formatDate(from)} - ${this.formatDate(to)}`}</h4>
+                    <h3 className="position">{position}</h3>
                 </div>
                 <div>
-                    <h3>{company}</h3>
-                    <h4>{city}</h4>
+                    <h3 className="company">{company}</h3>
+                    <h4 className="city">{city}</h4>
                 </div>
             </div>
         )
     } 
     // render name and details
     return (
-      <div>
+      <div className='display'>
         {Object.keys(this.props.content).map((fieldName, i) => {
         return (
-          <div className="field" key={i}>
-            <p>{this.props.content[fieldName]}</p>
-          </div>
+            <p key={i}>{this.props.content[fieldName]}</p>
         )
         })}
       </div>
