@@ -44,7 +44,6 @@ class TextDisplay extends Component {
         {Object.keys(this.props.content).map((fieldName, i) => {
         return (
           <div className="field" key={i}>
-            <h3>{capitalize(fieldName)}</h3>
             <p>{this.props.content[fieldName]}</p>
           </div>
         )

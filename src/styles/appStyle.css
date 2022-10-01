@@ -1,7 +1,12 @@
 @import './reset.css';
 :root {
-    --color-dark:rgb(41, 41, 148);
+    --color-dark:rgb(22, 22, 161);
     --color-light: rgb(122, 122, 225);
+    --color-complementary-dark: rgb(151, 81, 6);
+    --color-complementary-light: rgb(220, 143, 80);
+    --color-background:  rgb(225, 233, 252);
+    --color-left: rgb(24, 20, 20);
+    --color-paper: white;
 }
 
 h1{
@@ -14,8 +19,9 @@ h2{
     justify-self: stretch
 }
 
+
 .App{
-    background-color:blanchedalmond;
+    background-color:var(--color-background);
     display: grid;
     align-items: center;
     justify-content: center;
@@ -28,31 +34,44 @@ h2{
 
 #cv {
     display: grid;
+    background-color: var(--color-paper);
     min-height: 600px;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr repeat(2, 2fr);
+    grid-template-rows: repeat(3, 1fr) 2fr;
     grid-template-areas: 
                         "picture name"
+                        "picture education"
                         "general education"
                         "general experience";
+    align-items: stretch;
 }
 
 
 
-#picture{
+#cv #picture{
     grid-area: picture;
-    background-color: black;
+    background-color: var(--color-left);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    border-radius: 1rem;
+    max-height: 150px;
+    max-width: 150px;
 }
 
 #name {
     grid-area: name;
+    margin-top: 20px;
     background-color: var(--color-dark);
     color: white
 }
 
 #general{
     grid-area: general;
-    background-color: black;
+    background-color: var(--color-left);
     color: white
 }
 
@@ -68,6 +87,7 @@ h2{
     display: grid;
     align-items: start;
     align-content: start;
+    position: relative;
 }
 
 #cv button:not(.addButton){
@@ -84,16 +104,21 @@ h2{
 	z-index: -1;
 }
 
+button,
 #upload ~ label{
     outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
-    background-color: var(--color-dark);
+    background-color: var(--color-complementary-dark);
     color: white;
     padding: 2px 5px 2px 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
+button:hover,
 #upload ~ label:hover{
-    background-color: var(--color-light);
+    background-color: var(--color-complementary-light);
     color: black;
     cursor:pointer;
 }
@@ -115,7 +140,7 @@ h2{
     padding: 5px;
     align-items: center;
     justify-content: center;
-    gap:  20px
+    gap:  25px
 }
 
 .right-side-field > div{
@@ -124,6 +149,6 @@ h2{
     gap: 5px;
 }
 
-/* * {
+* {
     outline: 1px dashed red;
-} */
+}
