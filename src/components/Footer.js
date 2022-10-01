@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import githubLogo from '../assets/github-logo.png';
+import '../styles/footerStyle.css';
 
 class Footer extends Component{
     constructor(props){

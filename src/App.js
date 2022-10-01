@@ -1,6 +1,5 @@
 import Header from './components/Header'
-import Input from './components/Input';
-import Picture from './components/Picture'
+import CV from './components/CV';
 import Footer from './components/Footer'
 import './styles/appStyle.css'
 
@@ -8,10 +7,7 @@ function App() {
   return (
     <div className="App">
     <Header />
-    <div className="cv">
-        <Picture />
-        <Input />
-    </div>
+    <CV />
     <Footer projectName='CV-App'/>
     </div>
   );

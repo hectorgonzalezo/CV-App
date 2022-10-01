@@ -43,7 +43,7 @@ class InputField extends Component {
     // Input mode
     if (this.state.display === false) {
       return (
-        <div>
+        <div id={this.props.id}>
           <h2>{this.props.type}</h2>
           {this.props.fields.map((fieldName, i) => {
             return (
@@ -61,7 +61,7 @@ class InputField extends Component {
     } else {
         //display mode
         return (
-            <div>
+            <div id={this.props.id}>
               <h2>{this.props.type}</h2>
               {this.props.fields.map((fieldName, i) => {
                 return (

@@ -1,6 +1,7 @@
-
-#root{
-    background-color: red;
+@import './reset.css';
+:root {
+    --color-dark:rgb(41, 41, 148);
+    --color-light: rgb(122, 122, 225);
 }
 
 .App{
@@ -12,32 +13,72 @@
     height: 100vh;
     display: grid;
     grid-template-rows: 100px 1fr 50px;
+    padding: 0px;
 }
 
-.app > .cv {
-    background-color: red;
+#cv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr repeat(2, 2fr);
+    grid-template-areas: 
+                        "picture name"
+                        "general education"
+                        "general experience";
+}
+
+
+#picture{
+    grid-area: picture;
+    background-color: black;
+}
+
+#name {
+    grid-area: name;
+    background-color: var(--color-dark);
+    color: white
+}
+
+#general{
+    grid-area: general;
+    background-color: black;
+    color: white
+}
+
+#education{
+    grid-area: education;
+}
+#experience{
+    grid-area: experience;
+}
+
+#cv > div {
+    padding: 10px;
+}
+
+#upload{
+    overflow: hidden;
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#upload ~ label{
+    outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+    background-color: var(--color-dark);
+    color: white;
+    padding: 2px 5px 2px 5px;
+}
+
+#upload ~ label:hover{
+    background-color: var(--color-light);
+    color: black;
+    cursor:pointer;
 }
 
 * {
     outline: 1px dashed red;
 }
-
-
-footer {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 100%;
-    gap: 2vw;
-    background-color: var(--color-background);
-    color: rgb(74, 31, 31);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 1.5rem;
-  }
-  
-  #github-logo {
-    height: 30px;
-  }

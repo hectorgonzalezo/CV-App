@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import face from '../assets/face.png'
+import face from '../assets/face.png';
 
 class Picture extends Component{
     constructor(props){
@@ -17,14 +17,18 @@ class Picture extends Component{
 
     render(){
         return (
-            <div>
+            <div id="picture">
                 <img src={this.state.url} alt=""/>
-                <input 
-                type="file" 
-                name='upload'
-                accept="image/jpeg, image/png, image/jpg"
-                onChange={this.changePicture}
-                />
+                <div>
+                    <input
+                    type="file"
+                    name='upload'
+                    id='upload'
+                    accept="image/jpeg, image/png, image/jpg"
+                    onChange={this.changePicture}
+                    />
+                    <label htmlFor='upload'>Upload picture</label>
+                </div>
             </div>
         )
     }
