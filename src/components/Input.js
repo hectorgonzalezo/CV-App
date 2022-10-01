@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { capitalize } from 'lodash';
 
-class TextInput extends Component {
+class Input extends Component {
     constructor(props){
         super(props);
     }
@@ -8,13 +9,14 @@ class TextInput extends Component {
 
     render(){
       return (
-              <div>
-                <label htmlFor={`${this.props.name}Input`}>{this.props.name}</label>
+              <div className='field'>
+                <label htmlFor={`${this.props.name}Input`}>{capitalize(this.props.name)}</label>
                 <input
-                  type="text"
+                  type={this.props.type}
                   name={`${this.props.name}Input`}
                   id={`${this.props.name}Input`}
                   onChange={this.props.changeFunc}
+                  placeholder={this.props.name}
                 ></input>
               </div>
 
@@ -23,4 +25,4 @@ class TextInput extends Component {
 
 }
 
-export default TextInput
+export default Input

@@ -1,19 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { capitalize } from "lodash";
 
 class TextDisplay extends Component {
-    constructor(props){
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render(){
+  render() {
+    // console.log(this.props.content)
+    return (
+      <div>
+        {this.props.content.map((field, i) => {
         return (
-            <div>
-            <h2>{this.props.name}</h2>
-                <p>{this.props.content}</p>
-              </div>
+          <div className="field" key={i}>
+            <h3>{capitalize(field.name)}</h3>
+            <p>{field.value}</p>
+          </div>
         )
-    }
-
+        })}
+      </div>
+    );
+  }
 }
 
-export default TextDisplay
+export default TextDisplay;

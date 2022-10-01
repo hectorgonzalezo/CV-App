@@ -4,6 +4,16 @@
     --color-light: rgb(122, 122, 225);
 }
 
+h1{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--color-dark);
+    justify-self: stretch
+}
+
 .App{
     background-color:blanchedalmond;
     display: grid;
@@ -13,18 +23,20 @@
     height: 100vh;
     display: grid;
     grid-template-rows: 100px 1fr 50px;
-    padding: 0px;
+    justify-items: center;
 }
 
 #cv {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    min-height: 600px;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr repeat(2, 2fr);
     grid-template-areas: 
                         "picture name"
                         "general education"
                         "general experience";
 }
+
 
 
 #picture{
@@ -53,6 +65,10 @@
 
 #cv > div {
     padding: 10px;
+    display: grid;
+    align-items: start;
+    justify-items: left;
+    align-content: start;
 }
 
 #upload{
@@ -79,6 +95,18 @@
     cursor:pointer;
 }
 
-* {
-    outline: 1px dashed red;
+.field{
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+    padding: 3px;
 }
+
+.addButton{
+    justify-self: center;
+    align-self: start;
+}
+
+/* * {
+    outline: 1px dashed red;
+} */
