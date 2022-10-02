@@ -62,12 +62,12 @@ class CV extends Component {
         <InputMultiple
         id="education"
           title="Education"
-          fields={["university", "city", "degree", "from", "to"]}
+          fields={["from", "to", "university", "city", "degree"]}
         />
         <InputMultiple
         id="experience"
           title="Experience"
-          fields={["company", "position", "city", "from", "to"]}
+          fields={["from", "to", "company", "position", "city"]}
         />
       <button onClick={this.exportToPDF}>Export to PDF</button>
       </div>

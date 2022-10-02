@@ -9,6 +9,7 @@ class Header extends Component{
         return (
             <header>
                 <h1>CV App</h1>
+                <p>Hover over cv area to show buttons.</p>
             </header>
         )
     }

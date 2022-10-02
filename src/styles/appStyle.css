@@ -24,33 +24,28 @@ h2{
 .App{
     background-color:var(--color-background);
     display: grid;
+    grid-template-rows: 120px 1fr 50px;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     justify-items: center;
+    min-height: 100vh;
 }
 
 #cv {
+    align-self: start;
     display: grid;
     background-color: var(--color-paper);
     min-height: 600px;
     width: 800px;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 180px 1fr 1fr;
+    grid-template-columns: 0.8fr 2fr;
+    grid-template-rows: 150px 1fr 1fr;
     grid-template-areas: 
                         "picture name"
                         "general education"
                         "skills experience";
     align-items: stretch;
-}
-
-#cv div,
-form{
     position: relative;
 }
-
 
 #cv #picture{
     grid-area: picture;
@@ -65,6 +60,7 @@ img{
     max-height: 150px;
     max-width: 150px;
 }
+
 
 #cv #name {
     grid-area: name;    
@@ -105,24 +101,48 @@ img{
 }
 
 #cv > div {
-    padding: 10px;
+    padding: 20px;
     display: grid;
     align-items: start;
     align-content: start;
     position: relative;
+}
+
+#cv div,
+form{
+    display: grid;
+    position: relative;
     gap: 20px;
+    /* align-content: stretch; */
+}
+
+#education form,
+#experience form{
+   display: grid; 
+   grid-template-columns: repeat(2, 1fr);
+
+}
+
+#cv .field{
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    justify-content: space-around;
+    gap: 0px;
+}
+
+#cv .field input{
+    justify-self: start;
+    width: 75%;
 }
 
 .display{
     display: flex;
     flex-direction: column;
     gap: 25px;
+    padding-left: 10px;
+    height: 100%;
 }
 
-#cv button:not(.addButton),
-input[type="submit"]{
-    justify-self: left;
-}
 
 #upload{
     overflow: hidden;
@@ -143,16 +163,33 @@ input[type="submit"],
     color: white;
     padding: 2px 5px 2px 5px;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0px;
+    right: 0px;
+    font-size: 0.8rem;
+    opacity: 0;
+}
+
+div:hover > button,
+form:hover > input[type="submit"],
+div:hover > #upload ~ label{
+    opacity: 1;
+}
+
+.addButton{
+    position: relative;
+    width: 30px;
+    left: 50%;
+    /* bottom: 10px; */
+
 }
 
 .edit-button{
-    bottom: 38px;
+    right: 58px;
 }
 
 button:hover,
-#upload ~ label:hover{
+#upload ~ label:hover,
+input[type="submit"]:hover{
     background-color: var(--color-complementary-light);
     color: black;
     cursor:pointer;
@@ -164,22 +201,13 @@ button:hover,
     font-weight: bold;
 }
 
-.field{
-    display: flex;
-    gap: 5px;
-    flex-wrap: nowrap;
-    padding: 3px;
-}
 
-.addButton{
-    right: 50%;
-}
-
-.right-side-field{
+#cv .right-side-field{
     display: flex;
     padding: 5px;
     align-items: center;
-    gap:  25px
+    gap:  45px;
+    padding-left: 20px;
 }
 
 .right-side-field > div{
@@ -189,10 +217,12 @@ button:hover,
     font-size: 1rem;
 }
 
+.left-side-field::before,
 .right-side-field::before,
 #general p::before,
 #skills  p::before{
-    content: '- '
+    content: '- ';
+    font-size: 1.3rem;
 }
 
 .input-field{
@@ -213,9 +243,8 @@ button:hover,
 .university,
 .company {
     font-weight: bold;
-
 }
 
-/* * {
+* {
     outline: 1px dashed red;
-} */
+}

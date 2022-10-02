@@ -19,6 +19,7 @@ class Input extends Component {
                   className={this.props.className}
                   onChange={this.props.changeFunc}
                   placeholder={this.props.name}
+                  value={this.props.value}
                   required
                 />
               </div>

@@ -19,7 +19,6 @@ class Picture extends Component{
         return (
             <div id="picture">
                 <img src={this.state.url} alt=""/>
-                <div>
                     <input
                     type="file"
                     name='upload'
@@ -28,7 +27,6 @@ class Picture extends Component{
                     onChange={this.changePicture}
                     />
                     <label htmlFor='upload'>Upload picture</label>
-                </div>
             </div>
         )
     }

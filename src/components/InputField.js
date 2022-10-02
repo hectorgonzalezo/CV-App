@@ -86,21 +86,24 @@ class InputField extends Component {
     // Input mode
     if (this.state.display === false) {
       return (
-        <form id={this.props.id}>
- {this.props.title!== undefined? <h2 className='title'>{this.props.title}</h2> : null}
-          {this.props.fields.map((fieldName, i) => {
-            return (
-              <Input
-                key={i}
-                type={this.getCorrectType(fieldName)}
-                name={fieldName}
-                value={this.state[`${fieldName}Value`]}
-                changeFunc={this.updateTextValue}
-              />
-            );
-          })}
-          <input type="submit" value="Save" onClick={this.changeToDisplay}/>
-        </form>
+        <div id={this.props.id}>
+            <form >
+             {this.props.title!== undefined? <h2 className='title'>{this.props.title}</h2> : null}
+              {this.props.fields.map((fieldName, i) => {
+                
+                return (
+                  <Input
+                    key={i}
+                    type={this.getCorrectType(fieldName)}
+                    name={fieldName}
+                    value={this.state[`${fieldName}Value`]}
+                    changeFunc={this.updateTextValue}
+                  />
+                );
+              })}
+              <input type="submit" value="Save" onClick={this.changeToDisplay}/>
+            </form>
+        </div>
       );
     } else {
         //display mode
