@@ -52,7 +52,9 @@ class InputField extends Component {
 
   // Switches from input to display the info typed by user
   // This function is called by the "Submit" button
-  changeToDisplay() {
+  changeToDisplay(e) {
+    e.preventDefault();
+    console.log(e)
     this.setState((previousState) => ({ display: !previousState.display}));
   }
 
@@ -83,6 +85,7 @@ class InputField extends Component {
     if (this.state.display === false) {
       return (
         <div id={this.props.id}>
+ {this.props.title!== undefined? <h2 className='title'>{this.props.title}</h2> : null}
           {this.props.fields.map((fieldName, i) => {
             return (
               <Input

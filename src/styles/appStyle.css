@@ -16,7 +16,7 @@ h1{
 
 h2{
     font-size: 1.6rem;
-    border-bottom: 2px solid var(--color-dark);
+    border-bottom: 2px solid var(--color-light);
     justify-self: stretch
 }
 
@@ -42,7 +42,7 @@ h2{
     grid-template-areas: 
                         "picture name"
                         "general education"
-                        "general experience";
+                        "skills experience";
     align-items: stretch;
 }
 
@@ -85,8 +85,6 @@ img{
 
 #general{
     grid-area: general;
-    background-color: var(--color-left);
-    color: white
 }
 
 #education{
@@ -94,6 +92,15 @@ img{
 }
 #experience{
     grid-area: experience;
+}
+
+#skills{
+    grid-area: skills;
+}
+#general,
+#skills{
+    background-color: var(--color-left);
+    color: white
 }
 
 #cv > div {
@@ -176,7 +183,8 @@ button:hover,
 }
 
 .right-side-field::before,
-#general > div::before{
+#general > div::before,
+#skills > div > div::before{
     content: '-'
 }
 

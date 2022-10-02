@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InputField from "./InputField";
-import InputMultiple from './InputMultiple'
-import Picture from './Picture'
+import InputMultiple from './InputMultiple';
+import Picture from './Picture';
 
 class CV extends Component {
   constructor() {
@@ -19,16 +19,21 @@ class CV extends Component {
     return (
       <div id='cv'>
         <Picture />
-        <InputField
-          id="name"
-          fields={["name", "title"]}
-          />
+        <InputMultiple 
+        id='skills' 
+        title='Skills'
+        fields={['Skill']}
+        />
         <InputField
           id='general'
           title="Contact"
           fields={["email", "phone", "address"]}
           submitFunc={this.clickSubmit}
         />
+        <InputField
+          id="name"
+          fields={["name", "title"]}
+          />
         <InputMultiple
         id="education"
           title="Education"

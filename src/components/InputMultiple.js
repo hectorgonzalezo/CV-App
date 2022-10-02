@@ -30,7 +30,7 @@ class InputMultiple extends Component {
 
   render() {
     return (
-        <div>
+        <div id={this.props.id}>
             <h2 className="title">{this.props.title}</h2>
             {this.state.fields.map(field => {
                 return (

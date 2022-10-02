@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { capitalize } from 'lodash';
+import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 
 class Input extends Component {
     constructor(props){
@@ -15,6 +16,7 @@ class Input extends Component {
                   type={this.props.type}
                   name={`${this.props.name}Input`}
                   id={`${this.props.name}Input`}
+                  className={this.props.className}
                   onChange={this.props.changeFunc}
                   placeholder={this.props.name}
                   required
