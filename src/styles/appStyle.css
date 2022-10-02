@@ -37,11 +37,9 @@ h2{
 }
 
 #cv {
-    margin-top: 10px;
-    align-self: start;
     display: grid;
     background-color: var(--color-paper);
-    min-height: 600px;
+    min-height: 800px;
     width: 800px;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 170px 1fr 1fr;
@@ -218,12 +216,6 @@ img:hover{
     animation: shake 0.5s;
 }
 
-div > button:active,
-form > input[type="submit"]:active,
-div:active > #upload ~ label{
-    box-shadow: 1px 1px 1px var(--color-complementary-light);
-    bottom: -1px;
-}
 
 .addButton{
     position: relative;
