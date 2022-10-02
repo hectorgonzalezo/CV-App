@@ -53,14 +53,16 @@ class InputField extends Component {
   // Switches from input to display the info typed by user
   // This function is called by the "Submit" button
   changeToDisplay(e) {
+    // If the form is valid, or if parent isn't form at all, change between views.
+    if(e.target.parentElement.tagName === 'DIV' || e.target.parentElement.checkValidity()) {
     e.preventDefault();
-    console.log(e)
     this.setState((previousState) => ({ display: !previousState.display}));
+    }
   }
 
   // Makes a delete button to be used by experience and education subfields
   addDeleteButton(className){
-    if(className === 'experienceField' || className === 'educationField'){
+    if(className === 'experienceField' || className === 'educationField' || className === 'skillsField'){
         return <button  id={this.props.keyNum} onClick={this.props.deleteButtonFunc}>Delete</button>
     }
   }
@@ -70,7 +72,7 @@ class InputField extends Component {
     switch(fieldName){
         case 'from':
         case 'to':
-            return 'date';
+            return 'month';
         case 'email':
             return 'email';
         case 'phone':
@@ -84,7 +86,7 @@ class InputField extends Component {
     // Input mode
     if (this.state.display === false) {
       return (
-        <div id={this.props.id}>
+        <form id={this.props.id}>
  {this.props.title!== undefined? <h2 className='title'>{this.props.title}</h2> : null}
           {this.props.fields.map((fieldName, i) => {
             return (
@@ -97,8 +99,8 @@ class InputField extends Component {
               />
             );
           })}
-          <button type="submit" onClick={this.changeToDisplay}>Submit</button>
-        </div>
+          <input type="submit" value="Save" onClick={this.changeToDisplay}/>
+        </form>
       );
     } else {
         //display mode
@@ -106,7 +108,7 @@ class InputField extends Component {
             <div id={this.props.id}>
             {this.props.title!== undefined? <h3 className='title'>{this.props.title}</h3> : null}
                   <TextDisplay type={this.props.className} content={this.formatDisplayContent()} />
-              <button onClick={this.changeToDisplay}>Edit</button>
+              <button  className='edit-button' onClick={this.changeToDisplay}>Edit</button>
                 {this.addDeleteButton(this.props.className)}
             </div>
           );    

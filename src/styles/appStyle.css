@@ -46,7 +46,8 @@ h2{
     align-items: stretch;
 }
 
-#cv div {
+#cv div,
+form{
     position: relative;
 }
 
@@ -118,7 +119,8 @@ img{
     gap: 25px;
 }
 
-#cv button:not(.addButton){
+#cv button:not(.addButton),
+input[type="submit"]{
     justify-self: left;
 }
 
@@ -133,6 +135,7 @@ img{
 }
 
 button,
+input[type="submit"],
 #upload ~ label{
     outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
@@ -142,6 +145,10 @@ button,
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+
+.edit-button{
+    bottom: 38px;
 }
 
 button:hover,
@@ -183,9 +190,9 @@ button:hover,
 }
 
 .right-side-field::before,
-#general > div::before,
-#skills > div > div::before{
-    content: '-'
+#general p::before,
+#skills  p::before{
+    content: '- '
 }
 
 .input-field{

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { capitalize } from 'lodash';
-import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 
 class Input extends Component {
     constructor(props){
@@ -9,6 +8,7 @@ class Input extends Component {
 
 
     render(){
+        console.log(this.props.type==='moth'? "2019-05" : undefined)
       return (
               <div className='field'>
                 <label htmlFor={`${this.props.name}Input`}>{capitalize(this.props.name)}</label>

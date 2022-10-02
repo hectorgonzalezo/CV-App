@@ -14,7 +14,7 @@ class TextDisplay extends Component {
   render() {
     // render education and experience elements
     if(this.props.type === 'educationField'){
-        const { university, city, degree, subject, from, to } = this.props.content;
+        const { university, city, degree, from, to } = this.props.content;
         return(
             <div className="right-side-field">
                 <div>
