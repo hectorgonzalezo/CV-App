@@ -1,0 +1,18 @@
+.App header{
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+header h1{
+    font-size: 3rem;
+    margin: 1em 0 0.5em 0;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    text-shadow: 0 1px var(--color-dark), 0 3px var(--color-light);
+}
+
+p{
+    
+}

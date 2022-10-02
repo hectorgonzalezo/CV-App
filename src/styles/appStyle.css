@@ -1,13 +1,14 @@
 @import './reset.css';
 :root {
-    --color-dark:rgb(22, 22, 161);
-    --color-light: rgb(122, 122, 225);
-    --color-complementary-dark: rgb(151, 81, 6);
-    --color-complementary-light: rgb(220, 143, 80);
+    --color-dark:rgb(82, 82, 160);
+    --color-light: rgb(192, 192, 241);
+    --color-complementary-dark: rgb(110, 121, 61);
+    --color-complementary-light: rgb(205, 212, 130);
     --color-background:  rgb(225, 233, 252);
-    --color-left: rgb(24, 20, 20);
+    --color-left: rgb(53, 27, 27);
     --color-paper: white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
 }
 
 h1{
@@ -20,11 +21,15 @@ h2{
     justify-self: stretch
 }
 
+*:focus{
+    border: none;
+}
+
 
 .App{
     background-color:var(--color-background);
     display: grid;
-    grid-template-rows: 120px 1fr 50px;
+    grid-template-rows: auto 1fr 50px;
     align-items: center;
     justify-content: center;
     justify-items: center;
@@ -32,13 +37,14 @@ h2{
 }
 
 #cv {
+    margin-top: 10px;
     align-self: start;
     display: grid;
     background-color: var(--color-paper);
     min-height: 600px;
     width: 800px;
-    grid-template-columns: 0.8fr 2fr;
-    grid-template-rows: 150px 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 170px 1fr 1fr;
     grid-template-areas: 
                         "picture name"
                         "general education"
@@ -55,10 +61,11 @@ h2{
     justify-content: center;
 }
 
-img{
+#cv img{
+    border: 1px solid white;
     border-radius: 1rem;
-    max-height: 150px;
-    max-width: 150px;
+    height: 150px;
+    width: 150px;
 }
 
 
@@ -71,12 +78,12 @@ img{
 }
 
 #name p:first-child{
-    font-size: 3rem;
+    font-size: 2rem;
     letter-spacing: 0.2rem;
 }
 
 #name p{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-style: italic;
 }
 
@@ -125,7 +132,15 @@ form{
 
 #cv .field{
     display: grid;
-    grid-template-columns: 75px 1fr;
+    grid-template-columns: 82px 1fr;
+    justify-content: space-around;
+    gap: 0px;
+}
+
+#general .field,
+#skills .field{
+    display: grid;
+    grid-template-columns: 65px 1fr;
     justify-content: space-around;
     gap: 0px;
 }
@@ -133,6 +148,20 @@ form{
 #cv .field input{
     justify-self: start;
     width: 75%;
+    border-radius: 0.5rem;
+    padding: 3px 0px 3px 7px;
+    border: none;
+    background-color: rgb(227, 222, 222);
+    font-size: 0.9rem;
+    color: var(--color-dark)
+}
+
+input:focus{
+    outline: 2px solid var(--color-complementary-dark);
+}
+#cv .field input:hover{
+    outline: 2px solid var(--color-complementary-light);
+    cursor: pointer;
 }
 
 .display{
@@ -157,16 +186,24 @@ form{
 button,
 input[type="submit"],
 #upload ~ label{
+    border-radius: 0.8rem;
+    border: none;
+    box-shadow: 2px 3px 3px var(--color-complementary-light);
     outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
-    background-color: var(--color-complementary-dark);
-    color: white;
+    background-color: rgb(246, 246, 246); 
+    color: black;
     padding: 2px 5px 2px 5px;
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: -21px;
+    right: -13px;
     font-size: 0.8rem;
     opacity: 0;
+}
+#upload ~ label,
+#export-button{
+    bottom: 10px;
+    right: 10px;
 }
 
 div:hover > button,
@@ -175,13 +212,27 @@ div:hover > #upload ~ label{
     opacity: 1;
 }
 
+
+form:hover,
+img:hover{
+    animation: shake 0.5s;
+}
+
+div > button:active,
+form > input[type="submit"]:active,
+div:active > #upload ~ label{
+    box-shadow: 1px 1px 1px var(--color-complementary-light);
+    bottom: -1px;
+}
+
 .addButton{
     position: relative;
     width: 30px;
     left: 50%;
-    /* bottom: 10px; */
+    bottom: 10px
 
 }
+
 
 .edit-button{
     right: 58px;
@@ -190,8 +241,8 @@ div:hover > #upload ~ label{
 button:hover,
 #upload ~ label:hover,
 input[type="submit"]:hover{
-    background-color: var(--color-complementary-light);
-    color: black;
+    background-color: var(--color-complementary-dark);
+    color: white;
     cursor:pointer;
 }
 
@@ -245,6 +296,13 @@ input[type="submit"]:hover{
     font-weight: bold;
 }
 
-* {
+/* * {
     outline: 1px dashed red;
-}
+} */
+
+@keyframes shake {
+    0% { transform: translate(0px, 0px) }
+    30% { transform: translate(-1px, -1px); }
+    60% { transform: translate(1px, 1px); }
+    100% { transform: translate(0px, 0px) }
+  }

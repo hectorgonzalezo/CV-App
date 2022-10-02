@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import InputField from "./InputField";
-<<<<<<< HEAD
 import InputMultiple from './InputMultiple';
 import Picture from './Picture';
-=======
-import InputMultiple from './InputMultiple'
-import Picture from './Picture'
 import html2PDF from 'jspdf-html2canvas';
->>>>>>> 10cefd1 (Add export to pdf)
 
 class CV extends Component {
   constructor() {
@@ -69,7 +64,7 @@ class CV extends Component {
           title="Experience"
           fields={["from", "to", "company", "position", "city"]}
         />
-      <button onClick={this.exportToPDF}>Export to PDF</button>
+      <button id="export-button" onClick={this.exportToPDF}>Export to PDF</button>
       </div>
     );
   }
