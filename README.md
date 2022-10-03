@@ -15,7 +15,7 @@ First practice using React.
 
 ## Acknowledgements
 
-- Favicon by (icons8)[https://icons8.com/].
-- CV picture by (This person does not exist)[https://thispersondoesnotexist.com/].
+- Favicon by [icons8)(https://icons8.com/).
+- CV picture by [This person does not exist](https://thispersondoesnotexist.com/).
 
 
