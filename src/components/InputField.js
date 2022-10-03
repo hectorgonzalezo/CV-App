@@ -33,7 +33,6 @@ class InputField extends Component {
   updateTextValue(e) {
     if(!e.target.validity.valid){
         e.target.classList.add('invalid')
-        e.target.setCustomValidity('Wrong format')
     } else{
         e.target.classList.remove('invalid')
     }
@@ -82,9 +81,9 @@ class InputField extends Component {
         case 'email':
             return 'email';
         case 'phone':
-            return 'tel'
+            return 'tel';
         default:
-            return 'text'
+            return 'text';
     }
   }
 
@@ -96,13 +95,12 @@ class InputField extends Component {
             <form >
              {this.props.title!== undefined? <h2 className='title'>{this.props.title}</h2> : null}
               {this.props.fields.map((fieldName, i) => {
-                
                 return (
                   <Input
                     key={i}
                     type={this.getCorrectType(fieldName)}
                     name={fieldName}
-                    value={this.state[`${fieldName}Value`]}
+                    value={this.state[`${fieldName}Value`] || ''}
                     changeFunc={this.updateTextValue}
                   />
                 );

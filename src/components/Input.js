@@ -8,7 +8,7 @@ class Input extends Component {
 
 
     render(){
-        console.log(this.props.type==='moth'? "2019-05" : undefined)
+        // console.log(this.props.type ==='month'? "2019-05" : undefined)
       return (
               <div className='field'>
                 <label htmlFor={`${this.props.name}Input`}>{capitalize(this.props.name)}</label>
@@ -23,7 +23,6 @@ class Input extends Component {
                   required
                 />
               </div>
-
       );
     }
 
