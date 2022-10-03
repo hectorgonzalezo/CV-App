@@ -9,8 +9,8 @@ class Header extends Component{
     render(){
         return (
             <header>
-                <h1>CV App</h1>
-                <p>Hover over cv area to show buttons</p>
+            <h3>CV Creator</h3>
+                <p>Place cursor over cv area to show relevant buttons</p>
             </header>
         )
     }

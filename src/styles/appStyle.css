@@ -4,7 +4,7 @@
     --color-light: rgb(192, 192, 241);
     --color-complementary-dark: rgb(110, 121, 61);
     --color-complementary-light: rgb(205, 212, 130);
-    --color-background:  rgb(225, 233, 252);
+    --color-background:  rgb(188, 201, 232);
     --color-left: rgb(53, 27, 27);
     --color-paper: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -20,10 +20,10 @@ h2{
     border-bottom: 2px solid var(--color-light);
     justify-self: stretch
 }
-
+/* 
 *:focus{
     border: none;
-}
+} */
 
 
 .App{
@@ -198,10 +198,22 @@ input[type="submit"],
     font-size: 0.8rem;
     opacity: 0;
 }
+
+button:active,
+input[type="submit"]:active{
+    bottom: -23px;
+}
+
+
 #upload ~ label,
 #export-button{
     bottom: 10px;
     right: 10px;
+}
+
+#upload ~ label:active,
+#export-button:active{
+    bottom: 8px;
 }
 
 div:hover > button,
@@ -217,6 +229,8 @@ img:hover{
 }
 
 
+
+
 .addButton{
     position: relative;
     width: 30px;
@@ -225,6 +239,10 @@ img:hover{
 
 }
 
+.addButton:active{
+    position: relative;
+    bottom: 8px
+}
 
 .edit-button{
     right: 58px;
@@ -294,7 +312,7 @@ input[type="submit"]:hover{
 
 @keyframes shake {
     0% { transform: translate(0px, 0px) }
-    30% { transform: translate(-1px, -1px); }
-    60% { transform: translate(1px, 1px); }
+    30% { transform: translate(-2px, 0px); }
+    60% { transform: translate(2px, 0px); }
     100% { transform: translate(0px, 0px) }
   }
