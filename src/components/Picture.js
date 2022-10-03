@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import face from '../assets/face.png';
+import face from '../assets/face.jpg';
 
 class Picture extends Component{
     constructor(props){
