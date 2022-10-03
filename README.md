@@ -6,8 +6,7 @@ Built as part of [The Odin Project](https://www.theodinproject.com/) curriculum.
 
 Application that creates a Curriculum Vitae from user input.
 
-First practice using React.
-
+This project involves practicing the use of React states and props.
 
 ## Live Preview
 
