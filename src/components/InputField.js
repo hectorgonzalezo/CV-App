@@ -31,6 +31,12 @@ class InputField extends Component {
 
   // Updates the state with the new text value written in TextInput
   updateTextValue(e) {
+    if(!e.target.validity.valid){
+        e.target.classList.add('invalid')
+        e.target.setCustomValidity('Wrong format')
+    } else{
+        e.target.classList.remove('invalid')
+    }
     const fieldName = e.target.name.match(/[a-z]+/)[0];
     this.setState({
       [`${fieldName}Value`]: e.target.value,
