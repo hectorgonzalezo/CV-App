@@ -18,7 +18,7 @@ function InputField(props) {
         setFieldsObj((prevObj) => ({...prevObj, [field]:{value: '', id}})
         )
     }); 
-  }, []);
+  }, [props.fields]);
 
   // Updates the state with the new text value written in TextInput
   function updateTextValue(e) {

@@ -15,7 +15,6 @@ function InputMultiple(props){
 
 
   function addInputField(){
-    console.log(fields)
     setFields([...fields, uniquid()])
   }
 

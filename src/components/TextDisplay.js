@@ -11,10 +11,11 @@ function TextDisplay(props){
     // render education and experience elements
     if(props.type === 'educationField'){
         const { university, city, degree, from, to } = props.content;
+        console.log(from)
         return(
             <div className="right-side-field">
                 <div>
-                    <h4>{`${formatDate(from)} - ${this.formatDate(to)}`}</h4>
+                    <h4>{`${formatDate(from)} - ${formatDate(to)}`}</h4>
                     <h3 className='degree'>{degree}</h3>
                 </div>
                 <div>
@@ -28,7 +29,7 @@ function TextDisplay(props){
         return(
             <div className="right-side-field">
                 <div>
-                <h4>{`${formatDate(from)} - ${this.formatDate(to)}`}</h4>
+                <h4>{`${formatDate(from)} - ${formatDate(to)}`}</h4>
                     <h3 className="position">{position}</h3>
                 </div>
                 <div>
