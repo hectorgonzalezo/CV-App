@@ -56,7 +56,7 @@ function InputField(props) {
   // Makes a delete button to be used by experience and education subfields
   function addDeleteButton(className){
     if(className === 'experienceField' || className === 'educationField' || className === 'skillsField'){
-        return <button  id={props.keyNum} onClick={props.deleteButtonFunc}>Delete</button>
+        return <button className="delete-button" id={props.keyNum} onClick={props.deleteButtonFunc}>Delete</button>
     }
   }
 

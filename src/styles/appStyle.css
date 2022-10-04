@@ -20,9 +20,9 @@ h2{
     border-bottom: 2px solid var(--color-light);
     justify-self: stretch
 }
-/* 
-*:focus{
-    border: none;
+
+/* *{
+    outline: dashed red;
 } */
 
 
@@ -41,7 +41,7 @@ h2{
     background-color: var(--color-paper);
     min-height: 800px;
     width: 800px;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.1fr 2fr;
     grid-template-rows: 170px 1fr 1fr;
     grid-template-areas: 
                         "picture name"
@@ -118,7 +118,6 @@ form{
     display: grid;
     position: relative;
     gap: 20px;
-    /* align-content: stretch; */
 }
 
 #education form,
@@ -166,7 +165,7 @@ input:focus{
     display: flex;
     flex-direction: column;
     gap: 25px;
-    padding-left: 10px;
+    padding-left: 3px;
     height: 100%;
 }
 
@@ -226,7 +225,9 @@ div:hover > #upload ~ label{
 
 
 form:hover,
-img:hover{
+img:hover,
+.display:hover,
+.right-side-field:hover{
     animation: shake 0.5s;
 }
 
@@ -238,7 +239,6 @@ img:hover{
     width: 30px;
     left: 50%;
     bottom: 10px
-
 }
 
 .addButton:active{
@@ -247,7 +247,12 @@ img:hover{
 }
 
 .edit-button{
-    right: 58px;
+    right: 44px;
+}
+
+.delete-button,
+.edit-button{
+    bottom: 0px;
 }
 
 button:hover,
