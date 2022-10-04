@@ -1,31 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { capitalize } from 'lodash';
 
-class Input extends Component {
-    constructor(props){
-        super(props);
-    }
-
-
-    render(){
-        // console.log(this.props.type ==='month'? "2019-05" : undefined)
-      return (
-              <div className='field'>
-                <label htmlFor={`${this.props.name}Input`}>{capitalize(this.props.name)}</label>
-                <input
-                  type={this.props.type}
-                  name={`${this.props.name}Input`}
-                  id={`${this.props.name}Input`}
-                  className={this.props.className}
-                  onChange={this.props.changeFunc}
-                  placeholder={this.props.name}
-                  value={this.props.value}
-                  required
-                />
-              </div>
-      );
-    }
-
+function Input(props){
+  // console.log(props.type ==='month'? "2019-05" : undefined)
+  return (
+    <div className="field">
+      <label htmlFor={`${props.name}Input`}>
+        {capitalize(props.name)}
+      </label>
+      <input
+        type={props.type}
+        name={`${props.name}Input`}
+        id={`${props.name}Input`}
+        className={props.className}
+        onChange={props.changeFunc}
+        placeholder={props.name}
+        value={props.value}
+        required
+      />
+    </div>
+  );
 }
 
 export default Input

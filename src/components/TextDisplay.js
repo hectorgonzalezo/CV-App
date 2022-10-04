@@ -1,24 +1,20 @@
-import React, { Component } from "react";
+import React  from "react";
 import { format } from 'date-fns';
 
-class TextDisplay extends Component {
-  constructor(props) {
-    super(props);
-    this.formatDate = this.formatDate.bind(this);
-  }
+function TextDisplay(props){
 
-  formatDate(date){
+
+  function formatDate(date){
     return format(new Date(date),  'MMMM yyyy')
   }
 
-  render() {
     // render education and experience elements
-    if(this.props.type === 'educationField'){
-        const { university, city, degree, from, to } = this.props.content;
+    if(props.type === 'educationField'){
+        const { university, city, degree, from, to } = props.content;
         return(
             <div className="right-side-field">
                 <div>
-                    <h4>{`${this.formatDate(from)} - ${this.formatDate(to)}`}</h4>
+                    <h4>{`${formatDate(from)} - ${this.formatDate(to)}`}</h4>
                     <h3 className='degree'>{degree}</h3>
                 </div>
                 <div>
@@ -27,12 +23,12 @@ class TextDisplay extends Component {
                 </div>
             </div>
         )
-    } else if(this.props.type === 'experienceField'){
-        const { company, city, position, from, to } = this.props.content;
+    } else if(props.type === 'experienceField'){
+        const { company, city, position, from, to } = props.content;
         return(
             <div className="right-side-field">
                 <div>
-                <h4>{`${this.formatDate(from)} - ${this.formatDate(to)}`}</h4>
+                <h4>{`${formatDate(from)} - ${this.formatDate(to)}`}</h4>
                     <h3 className="position">{position}</h3>
                 </div>
                 <div>
@@ -45,14 +41,13 @@ class TextDisplay extends Component {
     // render name and details
     return (
       <div className='display'>
-        {Object.keys(this.props.content).map((fieldName, i) => {
+        {Object.keys(props.content).map((fieldName, i) => {
         return (
-            <p key={i}>{this.props.content[fieldName]}</p>
+            <p key={i}>{props.content[fieldName]}</p>
         )
         })}
       </div>
     );
-  }
 }
 
 export default TextDisplay;

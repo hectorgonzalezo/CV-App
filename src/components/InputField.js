@@ -1,79 +1,67 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./Input";
 import TextDisplay from "./TextDisplay";
 import uniquid from "uniqid";
 
 // These represent the cv fields when asking for an input
 
-class InputField extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { display: false };
-    this.updateTextValue = this.updateTextValue.bind(this);
-    this.changeToDisplay = this.changeToDisplay.bind(this);
-    this.getCorrectType = this.getCorrectType.bind(this);
-    this.addDeleteButton = this.addDeleteButton.bind(this);
-    this.formatDisplayContent = this.formatDisplayContent.bind(this);
-  }
+function InputField(props) {
+  const [display, setDisplay] = useState(false);
+  const [fieldsObj, setFieldsObj] = useState({});
 
   // Create state based on every field received by props
   // These will store the value of every Textinput
-  componentDidMount() {
-    this.props.fields.forEach((field) => {
+
+  useEffect(() => {
+    props.fields.forEach((field) => {
         const id = uniquid();
-      this.setState({
-        [`${field}Value`]: "",
-        [`${field}ID`]: id,
-      });
-    });
-  }
+        setFieldsObj((prevObj) => ({...prevObj, [field]:{value: '', id}})
+        )
+    }); 
+  }, []);
 
   // Updates the state with the new text value written in TextInput
-  updateTextValue(e) {
+  function updateTextValue(e) {
     if(!e.target.validity.valid){
         e.target.classList.add('invalid')
     } else{
         e.target.classList.remove('invalid')
     }
     const fieldName = e.target.name.match(/[a-z]+/)[0];
-    this.setState({
-      [`${fieldName}Value`]: e.target.value,
+    setFieldsObj({...fieldsObj,
+      [fieldName]: {value: e.target.value, id:fieldsObj[fieldName].id}
     });
   }
 
   // Formats the content to be sent do display
-  formatDisplayContent(){
-    let stateKeys = Object.keys(this.state);
-    stateKeys = stateKeys.filter(key => key.includes('Value'))
+  function formatDisplayContent(){
+    let stateKeys = Object.keys(fieldsObj);
     const valuesObj = {};
     stateKeys.forEach(key => {
-        const name = key.toString().match(/[a-z]+/)[0];
-        const value = this.state[key]
-        valuesObj[name] = value
+        valuesObj[key] = fieldsObj[key].value
     })
     return valuesObj
   }
 
   // Switches from input to display the info typed by user
-  // This function is called by the "Submit" button
-  changeToDisplay(e) {
+  // function is called by the "Submit" button
+  function changeToDisplay(e) {
     // If the form is valid, or if parent isn't form at all, change between views.
     if(e.target.parentElement.tagName === 'DIV' || e.target.parentElement.checkValidity()) {
     e.preventDefault();
-    this.setState((previousState) => ({ display: !previousState.display}));
+    setDisplay(!display)
     }
   }
 
   // Makes a delete button to be used by experience and education subfields
-  addDeleteButton(className){
+  function addDeleteButton(className){
     if(className === 'experienceField' || className === 'educationField' || className === 'skillsField'){
-        return <button  id={this.props.keyNum} onClick={this.props.deleteButtonFunc}>Delete</button>
+        return <button  id={props.keyNum} onClick={props.deleteButtonFunc}>Delete</button>
     }
   }
 
   // finds the right type for input based on fieldName
-  getCorrectType(fieldName){
+  function getCorrectType(fieldName){
     switch(fieldName){
         case 'from':
         case 'to':
@@ -87,40 +75,37 @@ class InputField extends Component {
     }
   }
 
-  render() {
     // Input mode
-    if (this.state.display === false) {
+    if (display === false) {
       return (
-        <div id={this.props.id}>
+        <div id={props.id}>
             <form >
-             {this.props.title!== undefined? <h2 className='title'>{this.props.title}</h2> : null}
-              {this.props.fields.map((fieldName, i) => {
+             {props.title!== undefined? <h2 className='title'>{props.title}</h2> : null}
+              {props.fields.map((fieldName, i) => {
                 return (
                   <Input
                     key={i}
-                    type={this.getCorrectType(fieldName)}
+                    type={getCorrectType(fieldName)}
                     name={fieldName}
-                    value={this.state[`${fieldName}Value`] || ''}
-                    changeFunc={this.updateTextValue}
+                    value={Object.keys(fieldsObj).length > 0 ? fieldsObj[fieldName].value :''}
+                    changeFunc={updateTextValue}
                   />
                 );
               })}
-              <input type="submit" value="Save" onClick={this.changeToDisplay}/>
+              <input type="submit" value="Save" onClick={changeToDisplay}/>
             </form>
         </div>
       );
-    } else {
+    } 
         //display mode
         return (
-            <div id={this.props.id}>
-            {this.props.title!== undefined? <h3 className='title'>{this.props.title}</h3> : null}
-                  <TextDisplay type={this.props.className} content={this.formatDisplayContent()} />
-              <button  className='edit-button' onClick={this.changeToDisplay}>Edit</button>
-                {this.addDeleteButton(this.props.className)}
+            <div id={props.id}>
+                {props.title!== undefined? <h3 className='title'>{props.title}</h3> : null}
+                  <TextDisplay type={props.className} content={formatDisplayContent()} />
+                <button  className='edit-button' onClick={changeToDisplay}>Edit</button>
+                {addDeleteButton(props.className)}
             </div>
           );    
-    }
-  }
 }
 
 export default InputField;

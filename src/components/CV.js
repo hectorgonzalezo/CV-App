@@ -1,21 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import InputField from "./InputField";
 import InputMultiple from './InputMultiple';
 import Picture from './Picture';
 import html2pdf from 'html2pdf.js';
 
-class CV extends Component {
-  constructor() {
-    super();
-    // If a field is active, it means that its in its input mode
+function CV(){
 
-    this.exportToPDF = this.exportToPDF.bind(this);
-        this.cvRef = React.createRef();
-  }
-
+    const cvRef = React.createRef();
   
-    async exportToPDF(){
-       const cvDiv = this.cvRef.current;
+    async function exportToPDF(){
+       const cvDiv = cvRef.current;
        const height = Number(window.getComputedStyle(cvDiv).height.match(/\d+/)[0]);
        const width = Number(window.getComputedStyle(cvDiv).width.match(/\d+/)[0]);
     //    Pass height and width of cv div as sizes for pdf
@@ -29,14 +23,13 @@ class CV extends Component {
     html2pdf().set(opt).from(cvDiv).save();
     }
 
-  render() {
     return (
-      <div id='cv' ref={this.cvRef}>
+      <div id='cv' ref={cvRef}>
         <Picture />
         <InputMultiple 
         id='skills' 
         title='Skills'
-        fields={['Skill']}
+        fields={['skill']}
         />
         <InputField
           id='general'
@@ -57,10 +50,9 @@ class CV extends Component {
           title="Experience"
           fields={["from", "to", "company", "position", "city"]}
         />
-      <button id="export-button" onClick={this.exportToPDF}>Export to PDF</button>
+      <button id="export-button" onClick={exportToPDF}>Export to PDF</button>
       </div>
     );
-  }
 }
 
 export default CV;

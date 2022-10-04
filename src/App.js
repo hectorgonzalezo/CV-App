@@ -1,19 +1,11 @@
+import React from 'react';
 import Header from './components/Header'
 import CV from './components/CV';
 import Footer from './components/Footer'
 import './styles/appStyle.css';
-import React, { Component } from 'react';
 
 
-
-
-class App extends Component{
-    constructor(props){
-        super(props);
-    }
-
-
-    render() {
+function App(){
   return (
     <div className="App">
       <Header />
@@ -21,7 +13,6 @@ class App extends Component{
       <Footer projectName="CV-App" />
     </div>
   );
-    }
 }
 
 export default App;

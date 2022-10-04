@@ -1,52 +1,41 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import InputField from './InputField';
 import uniquid from "uniqid";
 
 // These represent the cv fields when asking for an input
 
-class InputMultiple extends Component {
-  constructor(props) {
-    super(props);
+function InputMultiple(props){
 
-    this.state = {fields: []};
-    this.addInputField = this.addInputField.bind(this);
-    this.deleteButtonFunc = this.deleteButtonFunc.bind(this);
-  }
+  const [fields, setFields] = useState([])
 
   // Deletes the current InputField
-  deleteButtonFunc(e){
-    this.setState(previousState => ({
-        fields: previousState.fields.filter(field => field.id !== e.target.id)
-    }))
+  function deleteButtonFunc(e){
+    setFields(fields.filter(field => field.id !== e.target.id))
   }
 
 
-  addInputField(){
-    this.setState(previousState => ({
-        fields: previousState.fields.concat({id: uniquid()})
-    })
-    )
+  function addInputField(){
+    console.log(fields)
+    setFields([...fields, uniquid()])
   }
 
-  render() {
     return (
-        <div id={this.props.id}>
-            <h2 className="title">{this.props.title}</h2>
-            {this.state.fields.map(field => {
+        <div id={props.id}>
+            <h2 className="title">{props.title}</h2>
+            {fields.map(field => {
                 return (
                     <InputField
-                        key={field.id}
-                        keyNum={field.id}
-                        className={`${this.props.id}Field`}
-                        fields={this.props.fields}
-                        deleteButtonFunc={this.deleteButtonFunc}
+                        key={field}
+                        keyNum={field}
+                        className={`${props.id}Field`}
+                        fields={props.fields}
+                        deleteButtonFunc={deleteButtonFunc}
                     />
                 )
             })}
-            <button className='addButton' onClick={this.addInputField}>+</button>
+            <button className='addButton' onClick={addInputField}>+</button>
         </div>
     )
-  }
 }
 
 export default InputMultiple;
