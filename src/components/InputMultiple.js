@@ -10,7 +10,7 @@ function InputMultiple(props){
 
   // Deletes the current InputField
   function deleteButtonFunc(e){
-    setFields(fields.filter(field => field.id !== e.target.id))
+    setFields(fields.filter(field => field !== e.target.id))
   }
 
 

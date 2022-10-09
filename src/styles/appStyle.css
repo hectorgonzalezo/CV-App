@@ -4,7 +4,7 @@
     --color-light: rgb(192, 192, 241);
     --color-complementary-dark: rgb(110, 121, 61);
     --color-complementary-light: rgb(205, 212, 130);
-    --color-background:  rgb(188, 201, 232);
+    --color-background:  rgb(231, 235, 245);
     --color-left: rgb(6, 6, 48);
     --color-paper: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -138,7 +138,7 @@ form{
 #general .field,
 #skills .field{
     display: grid;
-    grid-template-columns: 68px 1fr;
+    grid-template-columns: 70px 1fr;
     justify-content: space-around;
     gap: 0px;
 }
@@ -254,6 +254,11 @@ img:hover,
 .delete-button,
 .edit-button{
     bottom: 0px;
+}
+
+.delete-button:active,
+.edit-button:active{
+    bottom: -2px;
 }
 
 button:hover,
