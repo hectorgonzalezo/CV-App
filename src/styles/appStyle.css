@@ -5,7 +5,7 @@
     --color-complementary-dark: rgb(110, 121, 61);
     --color-complementary-light: rgb(205, 212, 130);
     --color-background:  rgb(188, 201, 232);
-    --color-left: rgb(53, 27, 27);
+    --color-left: rgb(6, 6, 48);
     --color-paper: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
@@ -131,20 +131,21 @@ form{
     display: grid;
     grid-template-columns: 82px 1fr;
     justify-content: space-around;
+    align-items: center;
     gap: 0px;
 }
 
 #general .field,
 #skills .field{
     display: grid;
-    grid-template-columns: 65px 1fr;
+    grid-template-columns: 68px 1fr;
     justify-content: space-around;
     gap: 0px;
 }
 
 #cv .field input{
     justify-self: start;
-    width: 75%;
+    width: 85%;
     border-radius: 0.5rem;
     padding: 3px 0px 3px 7px;
     border: none;
